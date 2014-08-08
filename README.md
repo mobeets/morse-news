@@ -17,8 +17,8 @@ TWITTER_CONSUMER_KEY=replace_this
 
 Now tell heroku they're in .env
 ```
-heroku plugins:install git://github.com/ddollar/heroku-config.git
-heroku config:push
+$ heroku plugins:install git://github.com/ddollar/heroku-config.git
+$ heroku config:push
 ```
 
 Go!

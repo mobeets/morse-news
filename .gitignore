@@ -1,6 +1,6 @@
 .env
-db
-media
+db/*.db
+media/tmp*
 venv
 *.pyc
 .DS_Store
