@@ -4,7 +4,7 @@
 python bin/morse_wav_gen.py --infile message.txt --outfile outfile.wav --wpm 20
 ```
 
-### Or, set up morse_news web app locally:
+### Or, set up web app locally:
 
 Install requirements, create heroku app, create heroku database
 ```
