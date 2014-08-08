@@ -1,4 +1,10 @@
-### Local set-up:
+### Make your own morse .wav files
+
+```
+python bin/morse_wav_gen.py --infile contains_message.txt --outfile outfile.wav --wpm 20
+```
+
+### Or, set up morse_news web app locally:
 
 Install requirements, create heroku app, create heroku database
 ```
