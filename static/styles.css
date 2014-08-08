@@ -31,12 +31,24 @@ a:visited {
   border-bottom: dotted 1px black;
 }
 
-#morse_gen_recent table{
-    border-collapse: collapse;
+#morse_gen_recent table {
+  border-collapse: collapse;
 }
-#morse_gen_recent tr{
+#morse_gen_recent td {
+  border: 1px solid;
+  padding: 5px;
 }
-#morse_gen_recent td{
-    border: 1px solid;
-    padding: 5px;
+
+.info {
+  color: gray;
+  font-style: italic;
+}
+.result {
+  font-style: italic;
+  font-weight: bold;
+  color: green;
+}
+.error {
+  color: red;
+  font-style: italic;
 }

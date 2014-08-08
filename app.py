@@ -80,7 +80,7 @@ def main():
     cherrypy.config.update(conf.settings)
     
     morse_gen_app, morse_gen_flush = inner_main(conf.morse_gen_settings)
-    root_app = cherrypy.tree.mount(morse_gen_app, '/', conf.morse_gen_settings)
+    root_app = cherrypy.tree.mount(morse_gen_app, '/', conf.root_settings)
     root_app.merge(conf.settings)
 
     if hasattr(cherrypy.engine, 'subscribe'): # CherryPy >= 3.1

@@ -5,32 +5,23 @@ Install requirements, create heroku app, create heroku database
 $ sudo pip install -r requirements.txt
 $ heroku create --stack cedar
 $ heroku apps:rename APPNAME
-$ heroku config:push
-$ heroku addons:add heroku-postgresql:dev
 ```
 
-Example output:
-
+Create .env file with your twitter app keys:
 ```
-# Added heroku-postgresql:dev to thu-jehosafet (Free).
-# Attached as HEROKU_POSTGRESQL_AQUA_URL Database has been created and is available !
-# This database is empty.
-# If upgrading, you can transfer ! data from another database with pgbackups:restore.
-```
-
-Make sure to replace `HEROKU_POSTGRESQL_AQUA_URL` in case it's different in your case.
-
-```
-$ heroku config | grep HEROKU_POSTGRESQL
-$ heroku pg:promote HEROKU_POSTGRESQL_AQUA_URL
+TWITTER_CONSUMER_KEY=replace_this
+TWITTER_CONSUMER_KEY=replace_this
+TWITTER_CONSUMER_KEY=replace_this
+TWITTER_CONSUMER_KEY=replace_this
 ```
 
-Now, create a local database.
+Now tell heroku they're in .env
 ```
-$ psql
+heroku plugins:install git://github.com/ddollar/heroku-config.git
+heroku config:push
+```
 
-># CREATE DATABASE test;
-># \q
-
+Go!
+```
 $ foreman start
 ```
