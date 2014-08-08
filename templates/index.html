@@ -1,0 +1,70 @@
+<%inherit file="/base.html"/>
+
+<font color="gray">
+<i>
+    Morse speed is calculated using the PARIS convention.<br>
+    Goal speed (i.e. Farnsworth speed) is an optional parameter.<br>
+</i>
+</font>
+
+<hr>
+<h2>Recently created</h2>
+<div id="morse_gen_recent">
+    ${no_news_yet}
+    <table>
+        % for row in wav_rows:
+        <tr>
+            <td>
+                ${row.print_dt()}
+            </td>
+            <td>
+                ${row.feed_name}
+            </td>
+            <td>
+                ${row.print_speed()}
+            </td>
+            <!--<td>
+                <EMBED SRC="/${row.rel_wav_path}" AUTOSTART=false WIDTH=100 HEIGHT=10 LOOP=1><br>
+            </td>-->
+            <td>
+                <a href="/${row.rel_wav_path}" target="_blank">.wav</a>
+            </td>
+            <td>
+                <a href="/${row.rel_txt_path}" target="_blank">.txt</a>
+            </td>
+        </tr>
+        % endfor
+    </table>
+</div>
+
+<br><i>* = w/ pitch variation</i>
+<br><br>
+<i><b><font color="green">${result}</font></b></i>
+
+<hr>
+<h2>Create a new .wav</h2>
+    <font color="gray">
+        <i>An RSS feed will contain the first fifteen article titles.</i><br>
+        <i>A twitter search will contain the first five matching tweets.</i><br>
+        <i>The resulting .wav is limited to a length of five minutes.</i><br>
+    </font>
+    <br>
+    % if errors:
+    <i><font color="red">${errors}</font></i>
+    % endif
+
+    <form action="" method="post">
+        <table>
+            % for row in form_rows:
+                ${makerow(row)}
+            % endfor
+        </table>
+    </form>
+
+<%def name="makerow(row)">
+    <tr>
+    % for name in row:
+        <td>${name}</td>\
+    % endfor
+    </tr>
+</%def>
