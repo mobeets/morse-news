@@ -40,7 +40,7 @@ class Root(object):
         form = FeedChoiceForm(allow_extra_fields=True, filter_extra_fields=True)
         try:
             data = form.to_python(in_data)
-        except Invalid, e:
+        except Invalid as e:
             errors = e.unpack_errors()
             return '', form.error_msg(errors)
         is_rss, name, query = form.choice(data)

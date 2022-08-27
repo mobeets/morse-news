@@ -5,7 +5,7 @@ import wave
 from random import random
 from copy import copy
 from optparse import OptionParser
-from itertools import izip_longest
+from itertools import zip_longest
 
 from unidecode import unidecode
 
@@ -42,7 +42,7 @@ class Morse:
         """
         try:
             message = message.decode('ascii')
-        except UnicodeDecodeError, e:
+        except UnicodeDecodeError as e:
             message = unidecode(message)
         return self.translate(message)
 
@@ -166,7 +166,7 @@ class SoundFile:
             e.g. grouper(3, 'ABCDEFG', 'x') == ABC DEF Gxx
             """
             args = [iter(iterable)] * n
-            return izip_longest(fillvalue=fillvalue, *args)
+            return zip_longest(fillvalue=fillvalue, *args)
 
         w = wave.open(outfile, 'wb')
         w.setparams((nchannels, sampwidth, self.sample_rate, self.signal_length, 'NONE', 'uncompressed')) # don't bother setting nframes
@@ -204,7 +204,7 @@ def main():
     mandatory_opts = ['infile', 'outfile', 'wpm']
     for m in mandatory_opts:
         if not opts.__dict__[m]:
-            print 'Missing mandatory option: {0}'.format(m)
+            print('Missing mandatory option: {0}'.format(m))
             parser.print_help()
             exit(-1)
 

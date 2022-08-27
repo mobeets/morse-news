@@ -1,9 +1,9 @@
 from formencode import Schema, validators
-from model import MorseParamItem
+from .model import MorseParamItem
 
 feed_choice_names = ['twitter', 'rss_custom', 'rss_default']
 max_name_length = 20
-morse_speed_defaults = range(2, 42, 2)
+morse_speed_defaults = list(range(2, 42, 2))
 feed_defaults = {
     'Guardian World': 'http://feeds.guardian.co.uk/theguardian/world/rss',
     'Wired': 'http://feeds.wired.com/wired/index',
@@ -47,7 +47,7 @@ class FeedChoiceForm(Schema):
 
     def error_msg(self, data):
         msgs = []
-        for key, val in data.iteritems():
+        for key, val in data.items():
             if key == 'feed_url':
                 key = 'RSS feed url'
             msgs.append(key + ': ' + val)

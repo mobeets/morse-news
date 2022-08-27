@@ -8,7 +8,7 @@ from tempfile import NamedTemporaryFile
 import feedparser
 from unidecode import unidecode
 
-from twitter_search import tweets_from_query
+from .twitter_search import tweets_from_query
 
 OUTDIR = 'media'
 N_RSS_TITLES = 10
@@ -16,12 +16,12 @@ N_TWEETS = 5
 MAX_WAV_SECONDS = 300
 
 def approx_ascii(text):
-    return unidecode(unicode(text))
+    return unidecode(str(text))
 
 def article_titles_from_rss(url, n=N_RSS_TITLES):
-    print url
+    print(url)
     content = feedparser.parse(url)
-    print len(content['entries'])
+    print(len(content['entries']))
     titles = [item.title for item in content['entries']]
     if n:
         titles = titles[:n]
