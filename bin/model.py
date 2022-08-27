@@ -30,8 +30,8 @@ def article_titles_from_rss(url, n=N_RSS_TITLES):
 def query_to_content(query, is_rss, twitter_handle):
     if is_rss:
         content = article_titles_from_rss(query)
-    else:
-        content = tweets_from_query(twitter_handle, query, N_TWEETS)
+    # else:
+    #     content = tweets_from_query(twitter_handle, query, N_TWEETS)
     return approx_ascii(content)
 
 class MorseWavTask(object):

@@ -1,7 +1,7 @@
 from formencode import Schema, validators
 from .model import MorseParamItem
 
-feed_choice_names = ['twitter', 'rss_custom', 'rss_default']
+feed_choice_names = ['rss_custom', 'rss_default']
 max_name_length = 20
 morse_speed_defaults = list(range(2, 42, 2))
 feed_defaults = {
@@ -31,11 +31,11 @@ class FeedChoiceForm(Schema):
 
     def choice(self, data):
         is_rss = True
-        if data['feed_choice'] == 'twitter':
-            name = 'twitter: ' + data['feed_tweets']
-            query = data['feed_tweets']
-            is_rss = False
-        elif data['feed_choice'] == 'rss_default':
+        # if data['feed_choice'] == 'twitter':
+        #     name = 'twitter: ' + data['feed_tweets']
+        #     query = data['feed_tweets']
+        #     is_rss = False
+        if data['feed_choice'] == 'rss_default':
             if data['feed_def'] not in feed_defaults:
                 pass
             name = data['feed_def']
@@ -67,8 +67,8 @@ def feed_choice_form_rows():
     feed_choice_1 = input_field('feed_choice-1', 'feed_choice', 'radio', feed_choice_names[1])
     feed_choice_2 = input_field('feed_choice-2', 'feed_choice', 'radio', feed_choice_names[2])
 
-    feed_tweets_label = 'Search twitter:'
-    feed_tweets = input_field('feed_tweets', 'feed_tweets', 'text', '')
+    # feed_tweets_label = 'Search twitter:'
+    # feed_tweets = input_field('feed_tweets', 'feed_tweets', 'text', '')
 
     feed_url_label = 'Enter RSS feed url:'
     feed_url = input_field('feed_url', 'feed_url', 'text', '')
@@ -91,7 +91,7 @@ def feed_choice_form_rows():
     submit = input_field('submit', 'submit', 'submit', 'Submit')
 
     return [
-        [feed_choice_0 + ' ' + feed_tweets_label, feed_tweets],
+        # [feed_choice_0 + ' ' + feed_tweets_label, feed_tweets],
         [feed_choice_1 + ' ' + feed_url_label, feed_url],
         [feed_choice_2 + ' ' + feed_def_label, feed_def],
         [morse_speed_label, morse_speed],

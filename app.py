@@ -8,7 +8,7 @@ from mako.lookup import TemplateLookup
 import conf
 from bin.model import MorseParamItem, MorseWavTask, query_to_content
 from bin.forms import feed_choice_form_rows, FeedChoiceForm
-from bin.twitter_search import user_handle
+# from bin.twitter_search import user_handle
 
 lookup = TemplateLookup(directories=['templates'])
 class Root(object):
@@ -16,7 +16,7 @@ class Root(object):
         self.data = data
         self.exec_path = exec_path
         self.outdir = outdir
-        self.twitter_handle = user_handle()
+        self.twitter_handle = None # user_handle()
 
     def recently_added(self):
         dts = sorted(self.data)[-5:]
