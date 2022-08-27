@@ -1,11 +1,11 @@
 import os
 import re
-from twython import Twython
+# from twython import Twython
 
-CONSUMER_KEY = os.environ['TWITTER_CONSUMER_KEY']
-CONSUMER_SECRET = os.environ['TWITTER_CONSUMER_SECRET']
-OAUTH_TOKEN = os.environ['TWITTER_OAUTH_TOKEN']
-OAUTH_TOKEN_SECRET = os.environ['TWITTER_OAUTH_TOKEN_SECRET']
+# CONSUMER_KEY = os.environ['TWITTER_CONSUMER_KEY']
+# CONSUMER_SECRET = os.environ['TWITTER_CONSUMER_SECRET']
+# OAUTH_TOKEN = os.environ['TWITTER_OAUTH_TOKEN']
+# OAUTH_TOKEN_SECRET = os.environ['TWITTER_OAUTH_TOKEN_SECRET']
 
 def user_handle():
     return Twython(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
